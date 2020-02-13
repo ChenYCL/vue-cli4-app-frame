@@ -34,25 +34,25 @@
       navList() {
         return [
           {
-            name: '最近',
+            name: 'Recent',
             icon: 'rencents',
             routeName: 'rencents',
             routePath: '/',
           },
           {
-            name: '喜爱',
+            name: 'Favorite',
             icon: 'favorite',
             routeName: 'favorite',
             routePath: '/favorite',
           },
           {
-            name: '附近',
+            name: 'Nearby',
             icon: 'nearby',
             routePath: '/nearby',
             routeName: 'nearby',
           },
           {
-            name: '个人',
+            name: 'Person',
             icon: 'person',
             routeName: 'person',
             routePath: '/person',
