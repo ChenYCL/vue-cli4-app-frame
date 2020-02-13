@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@mdi/font": "^4.9.95",
     "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.4",
@@ -20,6 +21,7 @@
     "vue-i18n": "^8.15.3",
     "vue-router": "^3.1.5",
     "vuetify": "^2.2.12",
+    "vuetify-loader": "^1.4.3",
     "vuex": "^3.1.2"
   },
   "devDependencies": {

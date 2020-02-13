@@ -18,6 +18,8 @@ console.log('vue.config.js');
 
 const resolve = (dir) => path.join(__dirname, dir);
 
+// 按需引入 vuetify
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 const externals = {
   vue: 'Vue',
   'vue-router': 'VueRouter',
@@ -63,7 +65,9 @@ module.exports = {
     .cpus().length > 1, // 多线程打包
   productionSourceMap: env === 'development',
   configureWebpack: (config) => {
+    // 生产环境下
     const pluginsPro = [
+      new VuetifyLoaderPlugin(),
       new CompressionPlugin({
         algorithm(input, compressionOptions, callback) {
           return zopfli.gzip(input, compressionOptions, callback);
@@ -82,9 +86,6 @@ module.exports = {
       }),
     ];
 
-    // 插件 dev环境下
-
-    // let pluginsDev =[]
 
     if (process.env.NODE_ENV === 'production') {
       // eslint-disable-next-line no-param-reassign
@@ -96,7 +97,7 @@ module.exports = {
     } else {
       // config.plugins = [...config.plugins, ...pluginsDev];
       // eslint-disable-next-line no-param-reassign
-      config.plugins = [...config.plugins];
+      config.plugins = [...config.plugins, new VuetifyLoaderPlugin()];
     }
   },
   chainWebpack: (config) => {
@@ -160,7 +161,7 @@ module.exports = {
     // port:8000,
     https: false,
     open: true,
-    hotOnly: true,
+    hotOnly: false,
     proxy: {
       '/api': {
         target: '',

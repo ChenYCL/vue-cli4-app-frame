@@ -1,5 +1,5 @@
 <template>
-    <div>login</div>
+    <div>please login！！！！！！！！！！</div>
 </template>
 
 <script>

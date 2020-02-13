@@ -1,19 +1,128 @@
 <template>
-  <div id="app">
-    <router-view/>
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <router-view/>
+        <v-bottom-nav v-if="false"></v-bottom-nav>
+        <div
+            v-if="appBarShow"
+            class="none-transition v-bottom-nav box-shadow v-bottom-nav--fixed v-bottom-nav--active  app-nav"
+        >
+            <router-link
+                tag="a"
+                :to="item.needLogin ? '/login' : item.routePath"
+                class="none-transition wrapper "
+                v-for="(item, index) in navList"
+                :key="index"
+            >
+                <v-icon  color="green darken-2">
+                    mdi-domain
+                </v-icon>
+                <div class="router-title">{{item.name}}</div>
+
+            </router-link>
+        </div>
     </div>
-  </div>
 </template>
 
-<style lang="scss">
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif; // 字体配置
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
+<script>
+  import { mapState } from 'vuex';
+
+  export default {
+    name: 'App',
+    components: {},
+    computed: {
+      ...mapState('login', ['user']),
+      navList() {
+        return [
+          {
+            name: '最近',
+            icon: 'rencents',
+            routeName: 'rencents',
+            routePath: '/',
+          },
+          {
+            name: '喜爱',
+            icon: 'favorite',
+            routeName: 'favorite',
+            routePath: '/favorite',
+          },
+          {
+            name: '附近',
+            icon: 'nearby',
+            routePath: '/nearby',
+            routeName: 'nearby',
+          },
+          {
+            name: '个人',
+            icon: 'person',
+            routeName: 'person',
+            routePath: '/person',
+            needLogin: !(this.user && this.user.uid), // 或者是当前 登陆装 cookie
+
+          },
+        ];
+      },
+    },
+    data() {
+      return {
+        appBarShow: true,
+
+      };
+    },
+  };
+</script>
+
+<style lang="scss" scoped>
+    .app-nav {
+        z-index: 99;
+        background: $bg;
+    }
+
+
+
+    .box-shadow {
+        box-shadow: 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    }
+
+    .none-transition {
+        transition: none !important;
+    }
+
+    .none-transition:before {
+        transition: none !important;
+    }
+
+    .wrapper {
+        display: inline-flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: 0;
+        text-decoration: none;
+
+    }
+
+    .router-title{
+        font-size: 12px;
+        color: #2AB3FF;
+    }
+
+
+
+
+    .v-bottom-nav--fixed {
+        & > a {
+            width: 25%;
+            display: inline-flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .v-bottom-nav {
+        height: 48px;
+    }
 </style>

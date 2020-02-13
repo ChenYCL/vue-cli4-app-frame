@@ -2,7 +2,9 @@ import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
 import Router from 'vue-router';
 import Home from '@/views/Home.vue';
-import About from '@/views/About.vue';
+import favorite from '@/views/favorite/favorite.vue';
+import nearby from '@/views/nearby/nearby.vue';
+import person from '@/views/person/person.vue';
 import loginRouter from './loginRouter';
 
 
@@ -21,14 +23,24 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'rencents',
       component: Home,
 
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      path: '/favorite',
+      name: 'favorite',
+      component: favorite,
+    },
+    {
+      path: '/nearby',
+      name: 'nearby',
+      component: nearby,
+    },
+    {
+      path: '/person',
+      name: 'person',
+      component: person,
     },
     loginRouter,
   ],

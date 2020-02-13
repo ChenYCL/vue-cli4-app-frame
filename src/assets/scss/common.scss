@@ -70,8 +70,15 @@ header, nav, main, section, footer, article, aside {
 
 
 
-
-
+// icon 导航
+.router-link-exact-active.wrapper {
+  .router-title{
+    color: red !important;
+  }
+  i{
+    color: red;
+  }
+}
 
 
 
