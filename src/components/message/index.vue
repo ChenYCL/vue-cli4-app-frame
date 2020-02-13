@@ -6,34 +6,34 @@
 
 <script>
 export default {
-    name: 'message',
-    data(){
-        return{
-            msg: '',
-            visible: false,
-            duration: 3000
-        }
+  name: 'message',
+  data() {
+    return {
+      msg: '',
+      visible: false,
+      duration: 3000,
+    };
+  },
+  mounted() {
+    this.startTimer();
+  },
+  methods: {
+    startTimer() {
+      setTimeout(() => {
+        this.visible = false;
+        this.$el.addEventListener('transitionend', this.transitionEnd);
+      }, this.duration);
     },
-    mounted() {
-        this.startTimer();
+    transitionEnd() {
+      this.$nextTick(() => {
+        this.$el.removeEventListener('transitionend', this.transitionEnd);
+        this.$destroy(true);
+        // console.log(this.$el)
+        // this.$el.parentNode.removeChild(this.$el);
+      });
     },
-    methods: {
-        startTimer() {
-            setTimeout(() => {
-                this.visible = false;
-                this.$el.addEventListener('transitionend', this.transitionEnd);
-            }, this.duration);
-        },
-        transitionEnd() {
-            this.$nextTick(() => {
-                this.$el.removeEventListener('transitionend', this.transitionEnd);
-                this.$destroy(true);
-                // console.log(this.$el)
-                // this.$el.parentNode.removeChild(this.$el);
-            });
-        }
-    }
-}
+  },
+};
 </script>
 <style lang="scss" scoped>
 .message-content{

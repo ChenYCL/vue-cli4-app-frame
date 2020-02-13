@@ -1,8 +1,8 @@
 import axios from 'axios';
-import store from '@/store/store';
+import store from '@/store';
 
 const instance = axios.create({
-  baseURL: process.env.NODE_ENV === 'development' ? '' : 'http://tet.vroot.win/',
+  baseURL: process.env.NODE_ENV === 'development' ? '' : '', // 生产地址
   withCredentials: process.env.NODE_ENV === 'development',
   method: 'post',
   responseType: 'json',
@@ -40,7 +40,7 @@ instance.interceptors.response.use(
       message:
           (res.data && res.data.message)
           || `${res.config.url.replace(res.config.baseURL, '')
-          }<br />PHP Response Error！(*^▽^*)`,
+          }<br />Response Error！(*^▽^*)`,
     });
   },
   (error) => {

@@ -15,41 +15,39 @@
 </template>
 
 <script>
-  export default {
-    name: "index",
-    data () {
-      return {
-        show: false,
-        activeIndex: null
-      }
+export default {
+  name: 'index',
+  data() {
+    return {
+      show: false,
+      activeIndex: null,
+    };
+  },
+  props: {
+    _key: {
+      type: String,
+      default: '',
     },
-    props: {
-      _key: {
-        type: String,
-        default: ''
-      },
-      data: {
-        type: Array,
-        default: () => {
-          return ["BTC", "ETH", "EOS", "USDT"]
-        }
-      }
+    data: {
+      type: Array,
+      default: () => ['BTC', 'ETH', 'EOS', 'USDT'],
     },
-    methods: {
-      choose (item) {
-        this.activeIndex != null ? this.$emit("select", item) : this.$emit("select", null)
-      },
-      Destory () {
-        this.show = false;
-        this.activeIndex = null;
-      },
-      confirm(item){
-        this.$emit("confirm", item)
-        this.show = false;
-        this.activeIndex = null;
-      }
+  },
+  methods: {
+    choose(item) {
+      this.activeIndex != null ? this.$emit('select', item) : this.$emit('select', null);
     },
-  }
+    Destory() {
+      this.show = false;
+      this.activeIndex = null;
+    },
+    confirm(item) {
+      this.$emit('confirm', item);
+      this.show = false;
+      this.activeIndex = null;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -110,5 +108,3 @@
     color: #2AB3FF !important;
   }
 </style>
-
-

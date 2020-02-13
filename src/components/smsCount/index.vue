@@ -6,43 +6,43 @@
 </template>
 
 <script>
-  export default {
-    name: "smsBtn",
-    data () {
-      return {
-        timer: null,
-        isStarted: false,
-        status: true,
-        countms: ""
-      };
-    },
-    props: ["ms", "fn", "msStyle"],
-    mounted () {
-      this.countms = this.ms;
-    },
-    methods: {
-      start () {
-        if (this.isStarted) return;
-        this.isStarted = true;
-        if (this.isStarted && this.countms == this.ms) {
-          this.$emit("fn");
-        }
-        this.status = false;
-        this.timer = setInterval(() => {
-          this.countms -= 1;
-          if (this.countms <= 0) {
-            this.isStarted = false;
-            this.status = true;
-            this.countms = this.ms;
-            clearInterval(this.timer);
-          }
-        }, 1000);
+export default {
+  name: 'smsBtn',
+  data() {
+    return {
+      timer: null,
+      isStarted: false,
+      status: true,
+      countms: '',
+    };
+  },
+  props: ['ms', 'fn', 'msStyle'],
+  mounted() {
+    this.countms = this.ms;
+  },
+  methods: {
+    start() {
+      if (this.isStarted) return;
+      this.isStarted = true;
+      if (this.isStarted && this.countms == this.ms) {
+        this.$emit('fn');
       }
+      this.status = false;
+      this.timer = setInterval(() => {
+        this.countms -= 1;
+        if (this.countms <= 0) {
+          this.isStarted = false;
+          this.status = true;
+          this.countms = this.ms;
+          clearInterval(this.timer);
+        }
+      }, 1000);
     },
-    beforeDestroy () {
-      clearInterval(this.timer);
-    }
-  };
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+  },
+};
 </script>
 
 <style scoped lang="scss">

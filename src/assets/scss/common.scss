@@ -1,0 +1,86 @@
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  display: block;
+  width: 100%;
+  background: $bg;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+b, i, em {
+  font-style: normal;
+  font-weight: normal;
+}
+
+img {
+  border: none;
+}
+
+button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+a, a:focus, button, input {
+  outline: none;
+  font-family: inherit;
+}
+
+header, nav, main, section, footer, article, aside {
+  display: block;
+}
+
+
+.clearfix::after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+
+.l, .left {
+  float: left;
+}
+
+.r, .right {
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

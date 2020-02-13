@@ -8,23 +8,19 @@
     </v-container>
 </template>
 <script>
-    export default {
-        name: "load",
-        props: {
-            color: {
-                type: String,
-                default: () => {
-                    return "#272E73";
-                }
-            },
-            text: {
-                type: String,
-                default: () => {
-                    return ''
-                }
-            }
-        }
-    };
+export default {
+  name: 'load',
+  props: {
+    color: {
+      type: String,
+      default: () => '#272E73',
+    },
+    text: {
+      type: String,
+      default: () => '',
+    },
+  },
+};
 </script>
 <style scoped lang="scss">
 
