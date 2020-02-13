@@ -1,19 +1,21 @@
 # vue-frame-app
 
 ## feat
-* vutify
+
+* vuetify
 * qrcode
 * vuex support divide by module
 * axios 
 * vue-router
 * scss/sass/less support
-* build analyse supoort
+* build analyse support
 * cdn support
 * treeshaking build
 * proxy
 
 
 ## ui
+
 with bottom-nav-bar can switch different router, add user
 state to fake no login status
 
