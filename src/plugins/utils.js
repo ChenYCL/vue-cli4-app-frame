@@ -43,9 +43,6 @@ export default {
     if ((/file/gi.test(location.href))) {
       return `${axios.defaults.baseURL}/${url}`;
     }
-    // let origin = process.env.NODE_ENV == "development"
-    //     ? "http://ginseng.vroot.win"
-    //     : window.location.origin;
 
     return `${origin}/${url}`;
   },
