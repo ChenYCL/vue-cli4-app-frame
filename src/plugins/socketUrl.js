@@ -1,7 +1,7 @@
 export const IS_DEV = process.env.NODE_ENV === 'development';
 
 // 测试
-let defaultWsUrl = 'wss://market-api.rbtc.io/sub';
+let defaultWsUrl = 'wss://xx/sub';
 if (/rbtc\.io/.test(location.href)) {
   defaultWsUrl = 'wss://xx.io/sub';
 } else {
