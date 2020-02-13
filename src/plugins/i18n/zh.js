@@ -1,0 +1,31 @@
+
+export default {
+  title: "TET",
+  defaultLoadTxtMore:'加载更多',
+  user: '个人中心',
+  bbTrade:{
+    "webSocketError1": '无效的订单',
+    "webSocketError2": '余额不足',
+    "webSocketError3": '服务端解析发送的json数据出错',
+    "webSocketError4": 'mongo数据库中没有该用户',
+    "webSocketError5": '重复操作',
+    "webSocketError6": '创建订单失败，服务器内部错误',
+    "webSocketError7": '无效的用户ID',
+    "webSocketError8": '无效的价格',
+    "webSocketError9": '无效的个数',
+    "webSocketError10": '不知道如何提示，大概意思是这边服务器压力很大',
+    "webSocketError11": '无效的市场代号',
+    "webSocketError12": '无效的买卖类型',
+    "webSocketError13": '无效验证的用户',
+    "webSocketError14": '该市场暂停交易',
+    "webSocketError15": '验证失败',
+    "webSocketError16": '禁用的市场',
+    "webSocketError17": '请先进行实名认证',
+    "webSocketError18": '无效的k线类型',
+    "webSocketError19": '下单时间结束',
+    "webSocketError20": '单次下单个数太少',
+    "webSocketError21": '下单个数太多，超过本轮上线',
+    "webSocketError22": '请同意条款',
+    "webSocketError": 'websocket 连接错误',
+  }
+};

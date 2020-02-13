@@ -1,0 +1,80 @@
+$base1: #272E73;
+$base2: #33408E;
+$base3: #2AB3FF;
+$base4: #E93C90;
+$base5: #29CB98;
+$base6: #7582CE;
+$base7: rgb(36, 44, 114); // t-bar 基准色
+$base8: rgba(255, 255, 255, 0.1);
+$base9: rgb(34, 47, 250);
+$home_bg: rgba(0, 0, 0, .1);
+$modal-backdrop:rgba(18,18,18,0.5);
+$list-title:#9CA2C8;
+$bg:#FFFFFF;
+
+
+// top-nav
+$color_title: #FFFFFF;
+
+
+// 属性自动计算  eg. font-size: auto(48) --> font-size: 24px;
+
+@function auto($px,$pixel:2) {
+  @return $px/$pixel + px;
+}
+
+/* .message {
+        @extend %bg-normal;
+    }
+*/
+%bg-normal {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+// .class{ @include bg('../bg.png')}
+@mixin bg($url) {
+  background-image: url($url);
+}
+
+// module common css start
+.upper{
+  color:#E93C90;
+
+}
+.lower{
+  color:#29CB98
+}
+.border-bom{
+  border-bottom: 1px rgba(255,255,255,0.1) solid;
+}
+
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    @content;
+  }
+  &:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    @content;
+  }
+  &::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    @content;
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    @content;
+  }
+  &::-ms-input-placeholder {
+    /* Microsoft Edge */
+    @content;
+  }
+
+  &::placeholder {
+    /* Most modern browsers support this now. */
+    @content;
+  }
+}
