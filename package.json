@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@mdi/font": "^4.9.95",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.4",
     "css-loader": "^3.4.2",
